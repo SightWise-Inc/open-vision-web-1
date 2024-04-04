@@ -39,4 +39,3 @@ pub fn transform(
 
     output.put_image_data(&output_image_data, 0.0, 0.0)
 }
-
