@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>WasmCam: WebAssembly version</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="app">
+    </div>
+    <p>
+      You can modify configuration from browser console with the following methods:
+      <ul>
+        <li><span class="code">webCam.setSquareSize(size: number)</span>: Changes the size of each pixel square, can be 4, 8, 16 or 32</li>
+        <li><span class="code">webCam.setTransformation(transform: string)</span>: Sets the kind of picture transformation, can be <span class="code">pixelate</span> or <span class="code">greyscale</span></li>
+      </ul>
+    </p>
+    <p>
+      Code: <a href="https://github.com/iensu/wasm-cam" target="_blank">https://github.com/iensu/wasm-cam</a>
+    </p>
+    <script type="module">
+     import { WebCam } from './js/web-cam.js';
+     import initializeWasmModule from './wasm/process_canvas.js';
+
+     initializeWasmModule()
+       .then(() => {
+         window.webCam = new WebCam(document.getElementById("app"));
+         window.webCam.start();
+       });
+    </script>
+  </body>
+</html>
