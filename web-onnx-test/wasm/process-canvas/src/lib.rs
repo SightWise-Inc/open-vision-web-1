@@ -13,10 +13,10 @@ use std::cell::RefCell;
 // use example_webassembly::{upsample_inner};
 // use ortwasm::{upsample_inner};
 // use ortwasm;
-// use example_webassembly;
-use example_webassembly42;
+use example_webassembly;
+// use example_webassembly42;
 use image::{DynamicImage, RgbaImage, ImageBuffer};
-use serde::{Serialize, Deserialize};
+// use serde::{Serialize, Deserialize};
 use js_sys::{Function, JsString, Uint8ClampedArray};
 
 use tiny_skia::{PremultipliedColorU8};
