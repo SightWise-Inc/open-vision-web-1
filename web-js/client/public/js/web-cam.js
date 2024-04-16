@@ -11,6 +11,7 @@ export class WebCam {
   sourceCanvasId = "web-cam__source";
   targetCanvasId = "web-cam__target";
   stopped = false;
+  // hp_closure = processCanvas.create_hp_closure();
 
   intervalHandle = null;
 
@@ -40,6 +41,8 @@ export class WebCam {
     const video = document.getElementById(this.videoId);
     const sourceCanvas = document.getElementById(this.sourceCanvasId);
     const targetCanvas = document.getElementById(this.targetCanvasId);
+
+    // this.hp_closure();
 
     await this._initializeVideoStream(video, sourceCanvas, targetCanvas);
 
@@ -133,7 +136,17 @@ export class WebCam {
     sourceCtx.drawImage(video, 0, 0, this.videoWidth, this.videoHeight);
     const targetCtx = targetCanvas.getContext("2d");
 
-    processCanvas.transform(
+    // processCanvas.transform(
+    //   sourceCtx,
+    //   targetCtx,
+    //   this.videoWidth,
+    //   this.videoHeight,
+    //   this.squareSize,
+    //   this.transformation
+    // );
+
+    processCanvas.transform_handpose(
+      // this.hp_closure,
       sourceCtx,
       targetCtx,
       this.videoWidth,
